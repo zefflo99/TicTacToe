@@ -9,6 +9,29 @@ public class Main {
 
         // initialisation d'un int pour le jouer
         int tour = 1;
+        boolean victoire = false;
+
+        while (!victoire) {
+            afficheLaGrille(tableau);
+
+            int choix;
+
+            if (tour == 1) {
+                choix = demandetour("Joueur X, choississez une case (1-9) : ");
+            } else {
+                choix = demandetour("Joueur O, choississez une case (1-9) : ");
+            }
+
+
+        }
+
+
+
+
+
+
+
+
 
 
 
