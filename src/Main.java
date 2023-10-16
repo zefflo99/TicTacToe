@@ -22,22 +22,44 @@ public class Main {
                 choix = demandetour("Joueur O, choississez une case (1-9) : ");
             }
 
-
+            if (placeCoup(tableau, choix, tour)) {
+                victoire = verifiVictoire(tableau, tour);
+                if (victoire) {
+                    afficheLaGrille(tableau);
+                    System.out.println("le joueur" + (tour == 1 ? "X" : "O") + " a gagner");
+                } else if (tableauRemplie(tableau)) {
+                    afficheLaGrille(tableau);
+                    System.out.println("Egalité");
+                    break;
+                }
+                tour = (tour == 1) ? 2 : 1;
+            } else {
+                System.out.println("case remplie, veuillez ressayer");
+            }
         }
-
-
-
-
-
-
-
-
-
-
-
-
     }
 
+
+
+    public static void afficheLaGrille(char[][] tableau) {}
+
+
+
+
+    public static int demandetour(String message) {}
+
+
+
+
+    public static boolean placeCoup(char[][] tableau, int choix, int tour) {}
+
+
+    public static boolean verifiVictoire(char[][] tableau, int tour) {}
+
+
+
+
+    public static boolean tableauRemplie(char[][] tableau) {}
 
 
 
