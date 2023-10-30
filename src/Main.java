@@ -50,7 +50,13 @@ public class Main {
                 }
 
             }
+            System.out.println();
+
+            if (line < 2) {
+                System.out.println("---------");
+            }
         }
+        System.out.println();
     }
 
 
