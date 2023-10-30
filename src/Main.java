@@ -21,7 +21,7 @@ public class Main {
             if (round == 1) {
                 choice = requestround("Player X, select a box (1-9) : ");
             } else {
-                choice = requestround("Player O, select a box (1-9) : ");
+                choice = requestround("Player 0, select a box (1-9) : ");
             }
 
             if (placeCoup(table, choice, round)) {
@@ -41,7 +41,7 @@ public class Main {
         }
     }
 
-
+    //Displays the tic-tac-toe grid
     public static void displaysthegrid(char[][] table) {
         for (int line = 0; line < 3; line++) {
             for (int colonne = 0; colonne < 3; colonne++) {
@@ -61,8 +61,7 @@ public class Main {
     }
 
 
-
-
+    //Ask the player to choose a square
     public static int requestround(String message) {
         Scanner scanner = new Scanner(System.in);
         System.out.print(message);
@@ -71,11 +70,32 @@ public class Main {
 
 
 
+    //place a shot on the grid
+    public static boolean placeCoup(char[][] table, int choice, int round) {
+        char symbole = (round == 1) ? 'X' : 'O';
+        for (int line = 0; line < 3; line++) {
+            for (int colonne = 0; colonne < 3; colonne++) {
+                if (table[line][colonne] == Character.forDigit(choice, 10)) {
+                    table[line][colonne] = symbole;
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
 
-    public static boolean placeCoup(char[][] table, int choice, int round) {}
 
 
+
+    //checks whether a player has won
     public static boolean verifiVictory(char[][] table, int round) {}
+
+
+
+
+
+
+
 
 
 
