@@ -28,7 +28,7 @@ public class Main {
                 victory = verifiVictory(table, round);
                 if (victory) {
                     displaysthegrid(table);
-                    System.out.println("the player" + (round == 1 ? "X" : "O") + " to win");
+                    System.out.println("the player " + (round == 1 ? "X" : "O") + " to win");
                 } else if (completedtable(table)) {
                     displaysthegrid(table);
                     System.out.println("Egalité");
@@ -119,19 +119,14 @@ public class Main {
 
 
 
-
-
-
-
-
-
-
-    public static boolean completedtable(char[][] table) {}
-
-
-
-
-
-
-
+    public static boolean completedtable(char[][] table) {
+        for (int line = 0; line < 3; line++) {
+            for (int colonne = 0; colonne < 3; colonne++){
+                if (table[line][colonne] != 'X' && table[line][colonne] != 'O') {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
 }
