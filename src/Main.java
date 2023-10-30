@@ -1,65 +1,75 @@
 public class Main {
     public static void main(String[] args) {
         // initialize char to display the array
-        char [][] tableau = {
+        char [][] table = {
                 {'1','2','3'},
                 {'4','5','6'},
                 {'7','8','9'}
         };
 
         // initialize an int to play it
-        int tour = 1;
-        boolean victoire = false;
+        int round = 1;
+        boolean victory = false;
 
-        while (!victoire) {
-            afficheLaGrille(tableau);
+        while (!victory) {
+            displaysthegrid(table);
 
-            int choix;
+            int choice;
 
-            if (tour == 1) {
-                choix = demandetour("Joueur X, choississez une case (1-9) : ");
+            if (round == 1) {
+                choice = requestround("Player X, select a box (1-9) : ");
             } else {
-                choix = demandetour("Joueur O, choississez une case (1-9) : ");
+                choice = requestround("Player O, select a box (1-9) : ");
             }
 
-            if (placeCoup(tableau, choix, tour)) {
-                victoire = verifiVictoire(tableau, tour);
-                if (victoire) {
-                    afficheLaGrille(tableau);
-                    System.out.println("le joueur" + (tour == 1 ? "X" : "O") + " a gagner");
-                } else if (tableauRemplie(tableau)) {
-                    afficheLaGrille(tableau);
+            if (placeCoup(table, choice, round)) {
+                victory = verifiVictory(table, round);
+                if (victory) {
+                    displaysthegrid(table);
+                    System.out.println("the player" + (round == 1 ? "X" : "O") + " to win");
+                } else if (completedtable(table)) {
+                    displaysthegrid(table);
                     System.out.println("Egalité");
                     break;
                 }
-                tour = (tour == 1) ? 2 : 1;
+                round = (round == 1) ? 2 : 1;
             } else {
-                System.out.println("case remplie, veuillez ressayer");
+                System.out.println("box filled, please try again");
             }
         }
     }
 
 
 
-    public static void afficheLaGrille(char[][] tableau) {}
+    public static void displaysthegrid(char[][] table) {
+        for (int line = 0; line < 3; line++) {
+            for (int colonne = 0; colonne < 3; colonne++) {
+                System.out.print(table[line][colonne]);
+                if (colonne < 2) {
+                    System.out.print(" | ");
+                }
+
+            }
+        }
+    }
 
 
 
 
-    public static int demandetour(String message) {}
+    public static int requestround(String message) {}
 
 
 
 
-    public static boolean placeCoup(char[][] tableau, int choix, int tour) {}
+    public static boolean placeCoup(char[][] table, int choice, int round) {}
 
 
-    public static boolean verifiVictoire(char[][] tableau, int tour) {}
+    public static boolean verifiVictory(char[][] table, int round) {}
 
 
 
 
-    public static boolean tableauRemplie(char[][] tableau) {}
+    public static boolean completedtable(char[][] table) {}
 
 
 
