@@ -88,7 +88,26 @@ public class Main {
 
 
     //checks whether a player has won
-    public static boolean verifiVictory(char[][] table, int round) {}
+
+    public static boolean verifiVictory(char[][] table, int round) {
+        char symbole = (round == 1) ? 'X' : 'O';
+
+        for (int i = 0; i < 3; i++) {
+            if (table[i][0] == symbole && table[i][1] == symbole && table[i][2] == symbole) {
+                return true;
+            }
+            if (table[0][i] == symbole && table[1][0] == symbole && table[2][i] == symbole) {
+                return true;
+            }
+        }
+        if (table[0][0] == symbole && table[1][1] == symbole && table[2][2] == symbole) {
+            return true;
+        }
+        if (table[2][2] == symbole && table[1][1] == symbole && table[2][0] == symbole) {
+            return true;
+        }
+        return false;
+    }
 
 
 
