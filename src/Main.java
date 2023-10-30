@@ -94,11 +94,11 @@ public class Main {
 
         // check row and column
         for (int i = 0; i < 3; i++) {
-            // tchek horizontal
+            // chek horizontal
             if (table[i][0] == symbole && table[i][1] == symbole && table[i][2] == symbole) {
                 return true;
             }
-            // tchek vertical
+            // check vertical
             if (table[0][i] == symbole && table[1][0] == symbole && table[2][i] == symbole) {
                 return true;
             }
