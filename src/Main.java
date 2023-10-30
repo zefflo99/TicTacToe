@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
         // initialize char to display the array
@@ -40,7 +42,6 @@ public class Main {
     }
 
 
-
     public static void displaysthegrid(char[][] table) {
         for (int line = 0; line < 3; line++) {
             for (int colonne = 0; colonne < 3; colonne++) {
@@ -62,7 +63,11 @@ public class Main {
 
 
 
-    public static int requestround(String message) {}
+    public static int requestround(String message) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print(message);
+        return scanner.nextInt();
+    }
 
 
 
@@ -76,7 +81,6 @@ public class Main {
 
 
     public static boolean completedtable(char[][] table) {}
-
 
 
 
