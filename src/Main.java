@@ -14,24 +14,24 @@ public class Main {
         boolean victory = false;
 
         while (!victory) {
-            displaysthegrid(table);
+            displaysTheGrid(table);
 
             int choice;
 
             if (round == 1) {
-                choice = requestround("Player X, select a box (1-9) : ");
+                choice = requestRound("Player X, select a box (1-9) : ");
             } else {
-                choice = requestround("Player 0, select a box (1-9) : ");
+                choice = requestRound("Player 0, select a box (1-9) : ");
             }
 
             if (placeCoup(table, choice, round)) {
-                victory = verifiVictory(table, round);
+                victory = verifyVictory(table, round);
                 if (victory) {
-                    displaysthegrid(table);
+                    displaysTheGrid(table);
                     System.out.println("the player " + (round == 1 ? "X" : "O") + " to win");
-                } else if (completedtable(table)) {
-                    displaysthegrid(table);
-                    System.out.println("Egalité");
+                } else if (completedTable(table)) {
+                    displaysTheGrid(table);
+                    System.out.println("egality");
                     break;
                 }
                 round = (round == 1) ? 2 : 1;
@@ -42,7 +42,7 @@ public class Main {
     }
 
     //Displays the tic-tac-toe grid
-    public static void displaysthegrid(char[][] table) {
+    public static void displaysTheGrid(char[][] table) {
         for (int line = 0; line < 3; line++) {
             for (int colonne = 0; colonne < 3; colonne++) {
                 System.out.print(table[line][colonne]);
@@ -62,7 +62,7 @@ public class Main {
 
 
     //Ask the player to choose a square
-    public static int requestround(String message) {
+    public static int requestRound(String message) {
         Scanner scanner = new Scanner(System.in);
         System.out.print(message);
         return scanner.nextInt();
@@ -72,11 +72,11 @@ public class Main {
 
     //place a shot on the grid
     public static boolean placeCoup(char[][] table, int choice, int round) {
-        char symbole = (round == 1) ? 'X' : 'O';
+        char symbol = (round == 1) ? 'X' : 'O';
         for (int line = 0; line < 3; line++) {
             for (int colonne = 0; colonne < 3; colonne++) {
                 if (table[line][colonne] == Character.forDigit(choice, 10)) {
-                    table[line][colonne] = symbole;
+                    table[line][colonne] = symbol;
                     return true;
                 }
             }
@@ -89,28 +89,28 @@ public class Main {
 
     //checks whether a player has won
 
-    public static boolean verifiVictory(char[][] table, int round) {
-        char symbole = (round == 1) ? 'X' : 'O';
+    public static boolean verifyVictory(char[][] table, int round) {
+        char symbol = (round == 1) ? 'X' : 'O';
 
         // check row and column
         for (int i = 0; i < 3; i++) {
-            // chek horizontal
-            if (table[i][0] == symbole && table[i][1] == symbole && table[i][2] == symbole) {
+            // check horizontal
+            if (table[i][0] == symbol && table[i][1] == symbol && table[i][2] == symbol) {
                 return true;
             }
             // check vertical
-            if (table[0][i] == symbole && table[1][0] == symbole && table[2][i] == symbole) {
+            if (table[0][i] == symbol && table[1][0] == symbol && table[2][i] == symbol) {
                 return true;
             }
         }
 
         // check diagonal lines
-        //tchek from left to right
-        if (table[0][0] == symbole && table[1][1] == symbole && table[2][2] == symbole) {
+        // check from left to right
+        if (table[0][0] == symbol && table[1][1] == symbol && table[2][2] == symbol) {
             return true;
         }
-        //tchek from right to left
-        if (table[2][2] == symbole && table[1][1] == symbole && table[2][0] == symbole) {
+        // check from right to left
+        if (table[2][2] == symbol && table[1][1] == symbol && table[2][0] == symbol) {
             return true;
         }
         return false;
@@ -119,7 +119,7 @@ public class Main {
 
 
 
-    public static boolean completedtable(char[][] table) {
+    public static boolean completedTable(char[][] table) {
         for (int line = 0; line < 3; line++) {
             for (int colonne = 0; colonne < 3; colonne++){
                 if (table[line][colonne] != 'X' && table[line][colonne] != 'O') {
