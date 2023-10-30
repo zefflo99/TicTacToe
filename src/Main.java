@@ -92,17 +92,24 @@ public class Main {
     public static boolean verifiVictory(char[][] table, int round) {
         char symbole = (round == 1) ? 'X' : 'O';
 
+        // check row and column
         for (int i = 0; i < 3; i++) {
+            // tchek horizontal
             if (table[i][0] == symbole && table[i][1] == symbole && table[i][2] == symbole) {
                 return true;
             }
+            // tchek vertical
             if (table[0][i] == symbole && table[1][0] == symbole && table[2][i] == symbole) {
                 return true;
             }
         }
+
+        // check diagonal lines
+        //tchek from left to right
         if (table[0][0] == symbole && table[1][1] == symbole && table[2][2] == symbole) {
             return true;
         }
+        //tchek from right to left
         if (table[2][2] == symbole && table[1][1] == symbole && table[2][0] == symbole) {
             return true;
         }
